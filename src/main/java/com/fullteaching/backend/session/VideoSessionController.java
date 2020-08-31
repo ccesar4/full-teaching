@@ -1,11 +1,9 @@
 package com.fullteaching.backend.session;
 
-import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import javax.annotation.PostConstruct;
-
+import com.fullteaching.backend.security.AuthorizationService;
+import com.fullteaching.backend.user.UserComponent;
+import io.openvidu.java.client.OpenVidu;
+import io.openvidu.java.client.TokenOptions;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
@@ -14,18 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import io.openvidu.java.client.OpenVidu;
-import io.openvidu.java.client.TokenOptions;
-
-import com.fullteaching.backend.security.AuthorizationService;
-import com.fullteaching.backend.user.User;
-import com.fullteaching.backend.user.UserComponent;
+import javax.annotation.PostConstruct;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/api-video-sessions")
